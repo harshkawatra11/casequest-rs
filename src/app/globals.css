@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #0e4d25;      /* deep green — dominant accent, KPI numerals, active tags */
+  --accent: #ffc72c;       /* gold — back-card layer, chip fills */
+  --alert: #e03a1e;        /* red — warnings, bear-case, high-attention */
+  --secondary: #1b7f3b;    /* lighter green — rails, secondary tags */
+  --ink: #0a0a0a;          /* all strokes, all body text */
+  --surface: #f5f5f0;      /* page background, warm off-white */
+  --surface-alt: #ffffff;  /* card background */
+  --surface-dim: #eceae2;  /* zebra striping, quiet fills */
+  --background: var(--surface);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-alert: var(--alert);
+  --color-secondary: var(--secondary);
+  --color-ink: var(--ink);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-surface-dim: var(--surface-dim);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-display: var(--font-poppins);
+  --font-body: var(--font-inter);
+}
+
+* {
+  border-color: var(--ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+/* thin scrollbar, consulting-deck feel */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink);
+  border: 2px solid var(--surface);
+}
+
+/* layered sticker-card utility: pair a .card-back + .card-front, or use .card for a single-layer ink-bordered panel */
+.ink-border {
+  border: 2px solid var(--ink);
+}
+.ink-border-thick {
+  border: 2.5px solid var(--ink);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  background: var(--surface-dim);
+  border: 2px solid var(--ink);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: -7px;
+  background: var(--accent);
+  border: 2px solid var(--ink);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-track {
+  height: 8px;
+  background: var(--surface-dim);
+  border: 2px solid var(--ink);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  border-radius: 0;
+}
