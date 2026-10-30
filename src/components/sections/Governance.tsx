@@ -1,5 +1,5 @@
 import { SectionChip, Headline, Panel, Table, Source } from "@/components/ui/primitives";
-import { GIVE_GET, CASE_REQUIREMENTS } from "@/data/content";
+import { GIVE_GET, CASE_REQUIREMENTS, RACI_ACTIVITIES, RACI_ROWS } from "@/data/content";
 
 export function Governance() {
   return (
@@ -31,6 +31,24 @@ export function Governance() {
             ))}
           </ul>
           <Source>Source: research §1, §2 | every case-brief line resolves to a section and a slide (research Table 1.1, 1.2)</Source>
+        </Panel>
+      </div>
+
+      <div className="mt-4">
+        <Panel title="Who decides what: RACI across the six core compact activities">
+          <Table
+            head={["Activity", ...RACI_ACTIVITIES]}
+            rows={RACI_ROWS}
+            className="text-[10px] md:text-[11px]"
+          />
+          <p className="font-body text-xs text-ink/70 mt-2">
+            A = Accountable, R = Responsible, C = Consulted, I = Informed. CBIC keeps sole
+            accountability for grading and clearance on every row &mdash; the compact never asks
+            customs to delegate the check itself, only to receive better-structured data. DPIIT
+            keeps accountability for the data link and the scorecard, the only actor with no
+            single agency&rsquo;s turf to protect.
+          </p>
+          <Source>Source: research §20.2 | six activities only &mdash; a row is added only when two actors in the power-interest grid would give a different answer on who is accountable</Source>
         </Panel>
       </div>
     </section>

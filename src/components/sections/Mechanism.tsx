@@ -1,5 +1,5 @@
 import { SectionChip, Headline, Panel, Table, Source } from "@/components/ui/primitives";
-import { TIERS, CORRECTIONS } from "@/data/content";
+import { TIERS, CORRECTIONS, AEO_COMPARISON } from "@/data/content";
 import { DECLARATIONS } from "@/data/model";
 import { commas } from "@/lib/format";
 
@@ -45,6 +45,22 @@ export function Mechanism() {
             visibility on any parcel on the reformed direct lane, which stays declared one-for-one.
           </p>
           <Source>Source: team model 8fe043dc97, T9</Source>
+        </Panel>
+      </div>
+
+      <div className="mt-4">
+        <Panel title="Does an existing category already do this? Checked against AEO and Status Holder">
+          <Table
+            head={["AEO feature", "Where it overlaps our tiers", "Where it does not"]}
+            rows={AEO_COMPARISON.map(([feature, , overlap, gap]) => [feature, overlap, gap])}
+            className="text-[10px] md:text-[11px]"
+          />
+          <p className="font-body text-xs text-ink/70 mt-2">
+            Honest conclusion: our three tiers are not a renaming of AEO. They are desk-level,
+            automatic on the order record, and sit below the threshold at which a seller moving a
+            handful of parcels a month would apply for national AEO certification on their own.
+          </p>
+          <Source>Source: research §15.4 | CBIC Circular 54/2020 (Liberalised MSME AEO Package); aeoindia.gov.in</Source>
         </Panel>
       </div>
 
